@@ -1,6 +1,6 @@
 <template>
-  <div class="index flex" :style="{width: size+'px'}">
-    <img :width="size" :height="size" :src="processedImg"/>
+  <div class="index flex">
+    <img :src="processedImg"/>
     <label>
       <b>五星大小:</b>
       <el-slider :disabled="!gotImg" v-model="hqSize" :max="size/2" :min="50" @input="generate()"></el-slider>
@@ -27,7 +27,7 @@
   <input ref="input" style="display: none" type="file" accept="image/*" @input="inputImg"/>
   <canvas :width="size" :height="size" ref="canvas" style="display: none"/>
   
-  <el-dialog class="dialog" v-if="showPicker" :model-value="true" title="裁剪图片" :close-on-click-modal="false">
+  <el-dialog :append-to-body="true" class="dialog" v-if="showPicker" :model-value="true" title="裁剪图片" :close-on-click-modal="false">
     <cropper :show="showPicker" :stamp="stamp" :originImg="originImg" @getImg="getImg"/>
     <template #footer>
       <el-button @click="stamp=Date.now()" type="primary">确定</el-button>
@@ -128,8 +128,10 @@ export default {
   flex-direction: column;
   margin: auto;
   height: 100%;
+  width: 500px;
   img{
     margin-top: 20px;
+    width: 100%;
   }
   label{
     display: flex;
@@ -161,6 +163,11 @@ export default {
       height: 30px;
       margin-right: 10px;
     }
+  }
+}
+@media screen and (max-width: 768px){
+  .index{
+    width: 90% !important;
   }
 }
 </style>

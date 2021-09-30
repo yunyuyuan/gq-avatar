@@ -10,3 +10,7 @@ body, html{
     align-items: center;
   }
 }
+
+.el-dialog{
+  --el-dialog-width: 95% !important;
+}
