@@ -27,7 +27,7 @@
   <input ref="input" style="display: none" type="file" accept="image/*" @input="inputImg"/>
   <canvas :width="size" :height="size" ref="canvas" style="display: none"/>
   
-  <el-dialog :append-to-body="true" class="dialog" v-if="showPicker" :model-value="true" title="裁剪图片" :close-on-click-modal="false">
+  <el-dialog :append-to-body="true" class="dialog" v-if="showPicker" :model-value="true" title="裁剪图片" :close-on-click-modal="false" @closed="showPicker = false">
     <cropper :show="showPicker" :stamp="stamp" :originImg="originImg" @getImg="getImg"/>
     <template #footer>
       <el-button @click="stamp=Date.now()" type="primary">确定</el-button>

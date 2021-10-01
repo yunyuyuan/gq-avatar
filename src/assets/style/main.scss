@@ -11,6 +11,8 @@ body, html{
   }
 }
 
-.el-dialog{
-  --el-dialog-width: 95% !important;
+@media screen and (max-width: 768px){
+  .el-dialog{
+    --el-dialog-width: 95% !important;
+  }
 }
