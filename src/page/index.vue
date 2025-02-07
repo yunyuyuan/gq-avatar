@@ -76,6 +76,15 @@ export default {
   },
   mounted (){
     this.canvas = this.$refs.canvas;
+    setTimeout(() => {
+      const img = new Image(size, size);
+      img.src = IconImg;
+      img.onload = () => {     
+        this.gotImg = img;
+        this.generate();
+        this.canSave = true;
+      }
+    })
   },
   methods: {
     async inputImg(){
